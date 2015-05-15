@@ -14,7 +14,7 @@ import org.junit.runners.Parameterized.Parameters;
 public class PostfixEvaluationTest {
 	String comment, infix, postfix;
 	double result;
-	PostfixEvaluator postfixEvaluator;
+	Postfix postfixEvaluator;
 
 	public PostfixEvaluationTest(String comment, String infix, String postfix,
 			double result) {
@@ -28,13 +28,13 @@ public class PostfixEvaluationTest {
 	public static Collection<Object[]> data() {
 		Collection<Object[]> data = TestCases.generalTestCases();
 		data.addAll(TestCases.exponentialTestCases());
-		data.addAll(TestCases.multiDigitTestCases());
+		//data.addAll(TestCases.multiDigitTestCases());
 		return data;
 	}
 
 	@Before
 	public void createPostfix() {
-		postfixEvaluator = new PostfixEvaluator();
+		postfixEvaluator = new Postfix();
 	}
 
 	@Test

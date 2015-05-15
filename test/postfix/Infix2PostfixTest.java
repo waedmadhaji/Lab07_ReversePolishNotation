@@ -16,7 +16,7 @@ import stack.Underflow;
 public class Infix2PostfixTest {
 	String comment, infix, postfix;
 	double result;
-	InfixToPostfixConverter converter;
+	Postfix converter;
 
 	public Infix2PostfixTest(String comment, String infix, String postfix,
 			double result) {
@@ -30,13 +30,13 @@ public class Infix2PostfixTest {
 	public static Collection<Object[]> data() {
 		Collection<Object[]> data = TestCases.generalTestCases();
 		data.addAll(TestCases.exponentialTestCases());
-		data.addAll(TestCases.multiDigitTestCases());
+		//data.addAll(TestCases.multiDigitTestCases());
 		return data;
 	}
 
 	@Before
 	public void createConverter() {
-		converter = new InfixToPostfixConverter();
+		converter = new Postfix();
 	}
 
 	@Test
