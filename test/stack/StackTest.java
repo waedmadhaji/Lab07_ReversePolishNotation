@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class StackTest {
 
-	LinkedListStack<String> stack;
+	Stack<String> stack;
 
 	@Before
 	public void createStack() {
