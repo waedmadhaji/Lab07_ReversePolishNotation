@@ -6,8 +6,8 @@ public interface Stack<E> {
 
 	public E top() throws Underflow;
 
-	public Stack<E> push(E element);
+	public void push(E element);
 
-	public Stack<E> pop() throws Underflow;
+	public void pop() throws Underflow;
 
 }
