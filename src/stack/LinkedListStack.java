@@ -3,12 +3,6 @@ package stack;
 public class LinkedListStack<E> implements Stack<E> {
 
 	@Override
-	public String toString() {
-		return "you have to implement a toString method based on your implementation for the tests to run";
-
-	}
-
-	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
 		return false;
@@ -31,4 +25,5 @@ public class LinkedListStack<E> implements Stack<E> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

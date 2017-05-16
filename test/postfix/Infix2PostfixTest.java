@@ -29,7 +29,7 @@ public class Infix2PostfixTest {
 	@Parameters
 	public static Collection<Object[]> data() {
 		Collection<Object[]> data = TestCases.generalTestCases();
-		data.addAll(TestCases.exponentialTestCases());
+		//data.addAll(TestCases.exponentialTestCases());
 		//data.addAll(TestCases.multiDigitTestCases());
 		return data;
 	}
