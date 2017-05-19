@@ -15,15 +15,15 @@ public class LinkedListStack<E> implements Stack<E> {
 	}
 
 	@Override
-	public Stack<E> push(E element) {
+	public void push(E element) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
-	public Stack<E> pop() throws Underflow {
+	public void pop() throws Underflow {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 }
