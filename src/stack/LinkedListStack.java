@@ -21,8 +21,9 @@ public class LinkedListStack<E> implements Stack<E> {
 	}
 
 	@Override
-	public void pop() throws Underflow {
+	public E pop() throws Underflow {
 		// TODO Auto-generated method stub
+		return null;
 		
 	}
 
