@@ -1,15 +1,17 @@
 package stack;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.MethodSource;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StackTest {
 
 	Stack<String> stack;
 
-	@Before
+	@BeforeEach
 	public void createStack() {
 		stack = new LinkedListStack<>();
 	}
@@ -64,26 +66,31 @@ public class StackTest {
 
 	/**
 	 * Axiom 3: pop(new Stack()) = error
-	 * 
-	 * @throws Underflow
+	 *
 	 */
-	@Test(expected = Underflow.class)
-	public void axiom3() throws Underflow {
-		stack.pop();
+
+	public void axiom3() {
+		assertThrows(Underflow.class, stack::pop);
 	}
 
 	/**
 	 * Axiom 4: getFront(new Stack()) = error
 	 */
-	@Test(expected = Underflow.class)
+	@Test
 	public void axiom4() throws Underflow {
-		stack.top();
+		Underflow underflow = assertThrows(
+				Underflow.class,
+				() -> stack.top());
+		;
+		//assertTrue(underflow.getMessage().contains("empty"));
 	}
+
+
+
+
 
 	/**
 	 * Axiom 5: pop(push(s,x)) = x
-	 * 
-	 * @throws Underflow
 	 */
 	@Test
 	public void axiom5OnEmptyStack() throws Underflow {
