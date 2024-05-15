@@ -28,8 +28,8 @@ public class StackTest {
 	@Test
 	public void testPush2() {
 		stack.push("a");
-		stack.push("b");
-		assertEquals("b, a", stack.toString());
+		stack.push("b1");
+		assertEquals("a-b1", stack.toString());
 	}
 
 	@Test
@@ -45,7 +45,7 @@ public class StackTest {
 		stack.push("b");
 		stack.push("c");
 		stack.pop();
-		assertEquals("b, a", stack.toString());
+		assertEquals("a-b", stack.toString());
 	}
 	/**
 	 * Axiom 1: isEmpty(new Stack()) = true

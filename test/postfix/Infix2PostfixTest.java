@@ -1,46 +1,33 @@
 package postfix;
 
 
-import java.util.Collection;
+import java.util.stream.Stream;
 
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import stack.Underflow;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 
 public class Infix2PostfixTest {
-	String comment, infix, postfix;
-	double result;
-	Postfix converter;
 
+    Infix infix = new Infix();
 
+    public static Stream<Arguments> testCases() {
+        Stream<Object[]> testCases = TestCases.allTestCases();
+        return testCases.map(a -> arguments(a[0], a[1], a[2]));
+    }
 
-	public static Collection<Object[]> testInfixToPostfix() {
-		Collection<Object[]> data = TestCases.generalTestCases();
-		//data.addAll(TestCases.exponentialTestCases());
-		//data.addAll(TestCases.multiDigitTestCases());
-		return data;
-	}
+    @ParameterizedTest
+    @MethodSource("testCases")
+    public void testInfixToPostfix(String message, String infixStr, String postfix) throws Underflow {
+        assertEquals(postfix,
+                infix.toPostfix(infixStr), message + " (infix was: " + infix + ")");
 
-	@BeforeEach
-	public void createConverter() {
-		converter = new Postfix();
-	}
-
-	@ParameterizedTest
-	@MethodSource
-	public void testInfixToPostfix(String comment, String infix, String postfix,
-								   double result) throws Underflow {
-		assertEquals(comment + " (infix was: " + infix + ")", postfix,
-				converter.infixToPostfix(infix));
-	}
-
-
-
+    }
 
 }

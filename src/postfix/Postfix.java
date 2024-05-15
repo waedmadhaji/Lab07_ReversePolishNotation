@@ -1,14 +1,12 @@
 package postfix;
 
+import stack.Underflow;
+
+
 public class Postfix {
 
-	public String infixToPostfix(String infix) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	public double evaluate(String postfix) {
-		// TODO Auto-generated method stub
+	public double evaluate(String postfix) throws Underflow {
 		return 0;
 	}
 

@@ -1,43 +1,34 @@
 package postfix;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import stack.Underflow;
 
-import java.util.Collection;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 
 public class PostfixEvaluationTest {
-	String comment, infix, postfix;
-	double result;
-	Postfix postfixEvaluator;
+    Postfix postfix = new Postfix();
 
-	public PostfixEvaluationTest(String comment, String infix, String postfix,
-			double result) {
-		this.comment = comment;
-		this.infix = infix;
-		this.postfix = postfix;
-		this.result = result;
-	}
+    public static Stream<Arguments> testCases() {
+        Stream<Object[]> testCases = TestCases.allTestCases();
+        return testCases.map(a -> arguments(a[0], a[2], a[3]));
+    }
 
-	public static Collection<Object[]> data() {
-		Collection<Object[]> data = TestCases.generalTestCases();
-		//data.addAll(TestCases.exponentialTestCases());
-		//data.addAll(TestCases.multiDigitTestCases());
-		return data;
-	}
+    @ParameterizedTest
+    @MethodSource("testCases")
+    public void testEvaluatePostfix(String comment, String postfixStr,
+                                    double result) throws Underflow {
+        assertEquals(result,
+                postfix.evaluate(postfixStr),
+                0.0,
+                comment + " (postfix was: " + postfixStr + ")");
 
-	@BeforeEach
-	public void createPostfix() {
-		postfixEvaluator = new Postfix();
-	}
-
-	@Test
-	public void testEvaluatePostfix() {
-		//assertEquals(comment + " (postfix was: " + postfix+")", result,
-		//		postfixEvaluator.evaluate(postfix), 0.0);
-
-	}
+    }
 
 }
