@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Lab06_ReversePolishNotation_Scaffold.iml" filepath="$PROJECT_DIR$/Lab06_ReversePolishNotation_Scaffold.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab07_ReversePolishNotation.iml" filepath="$PROJECT_DIR$/Lab07_ReversePolishNotation.iml" />
     </modules>
   </component>
 </project>
